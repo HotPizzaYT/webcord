@@ -1,0 +1,55 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>The WebCord client for Discord</title>
+<script>
+function disSend(t, c, m){
+fetch("https://ptb.discordapp.com/api/v6/channels/" + c + "/messages", {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t,"content-type":"application/json","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-super-properties":"hax"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":"{\"content\":\"" + m + "\",\"tts\":false}","method":"POST","mode":"cors"});
+document.getElementById('mess').value = "";
+setTimeout(function(){ disLoad(document.getElementById('token').value, document.getElementById('channel').value, '50'); }, 2000);
+}
+function disLoad(t, c, v){
+document.getElementById('messages').innerHTML = "";
+fetch('https://ptb.discordapp.com/api/v6/channels/' + c + '/messages?limit=' + v, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization":t,"sec-fetch-mode":"cors","sec-fetch-site":"same-origin"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => {   i = 0; for(let i = 0 ; i < data.length; i++){  
+
+// + '<img src="' + data[i].attachments[0].url + '" style="width: 10%; height: 10%" /><br>'
+
+
+if(data[i].attachments == ''){
+ document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>';
+ } else {
+document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>' + '<img src="' + data[i].attachments[0].url + '" /><br>'; 
+ console.log('Found a URL');
+ }
+} });
+
+}
+
+
+function keyD(event){
+if(event.keyCode == 13){
+disSend(document.getElementById('token').value, document.getElementById('channel').value, document.getElementById('mess').value);
+}
+}
+</script>
+</head>
+
+<body>
+
+<div style="position: absolute; width: 1007px; height: 469px; z-index: 1; left: 6px; top: 15px; color: #ffffff; background-color: #000000;" id="layer1">
+WebCord Client========================<br>
+<input id="token" placeholder="Put your token here" size="42"></input> AND 
+<input id="channel" placeholder="Channel/UserID" size="24"></input>&nbsp;<button onclick="disLoad(document.getElementById('token').value, document.getElementById('channel').value, '50')">DisLoad!</button></div>
+
+<div style="position: absolute; width: 975px; height: 350px; z-index: 2; left: 14px; top: 68px; color: #000000; background-color: #ffffff; padding: 5px; overflow-y: scroll; overflow-x: scroll;" id="messages">
+<b>undefined</b> this is what your messages will look like</div>
+
+<div style="position: absolute; width: 982px; height: 38px; z-index: 3; left: 10px; top: 432px" id="layer2">
+<input id="mess" placeholder="Send message to Undefined" onkeypress="keyD(event)" size="130"></input>&nbsp;<button onclick="disSend(document.getElementById('token').value, document.getElementById('channel').value, document.getElementById('mess').value)">Send</button>
+&nbsp;</div>
+
+</body>
+
+</html>
