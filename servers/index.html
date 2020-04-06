@@ -201,13 +201,13 @@ body {
 <label for="ids_server">Pick server</label>
 
 <select id="ids_server" onchange="disLoadChannel(document.getElementById('token').value, '50')">
-    <option value="test">Test DM Option</option>
+    <option value="test">--Select Option--</option>
 </select> 
 
 <label for="ids_channel">Pick channel</label>
 
 <select id="ids_channel" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50'); for (var i = 1; i < 3; i++){window.clearInterval(i)}; setInterval(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 20000); document.getElementById('messages').innerHTML = '';">
-    <option value="test">Test DM Option</option>
+    <option value="test">--Select Option--</option>
 </select> 
 
 

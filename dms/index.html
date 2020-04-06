@@ -167,8 +167,8 @@ body {
 
 <label for="ids_dm">Pick DM</label>
 
-<select id="ids_dm" onchange="disUpdate(for (var i = 1; i < 3; i++){window.clearInterval(i)}; document.getElementById('token').value, getChannel(), '50'); document.getElementById('messages').innerHTML = '';">
-    <option value="test">Test DM Option</option>
+<select id="ids_dm" onchange="for (var i = 1; i < 3; i++){window.clearInterval(i)}; disUpdate(document.getElementById('token').value, getChannel(), '50'); document.getElementById('messages').innerHTML = '';">
+    <option value="test">--Select Option--</option>
 </select> 
 
 <div style="position: absolute; width: 975px; height: 350px; z-index: 2; left: 14px; top: 68px; color: #000000; background-color: #ffffff; padding: 5px; overflow-y: scroll; overflow-x: scroll;" id="messages">
