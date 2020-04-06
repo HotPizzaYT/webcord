@@ -163,13 +163,20 @@ body {
 <div style="position: absolute; width: 1007px; height: 469px; z-index: 1; left: 6px; top: 15px; color: #ffffff; background-color: #000000;" id="layer1">
 <i style="margin-left: 10px;"></i> <img src="https://hotpizzayt.github.io/webcord/res/logo.png" width="100" height="32"><br>
 <i style="margin-left: 10px;"></i> <input type="password" id="token" placeholder="Put your token here" size="42"></input> 
-<i style="margin-left: 10px;"></i> <button onclick="disLoad(document.getElementById('token').value, '50')">Load all DMs!</button>
+<i style="margin-left: 10px;"></i> <button onclick="disLoad(document.getElementById('token').value, '50')">Load all Servers!</button>
 
-<label for="ids_dm">Pick DM</label>
+<label for="ids_dm">Pick server</label>
 
-<select id="ids_dm" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50'); document.getElementById('messages').innerHTML = '';">
+<select id="ids_dm">
     <option value="test">Test DM Option</option>
 </select> 
+
+<select id="ids_dm">
+    <option value="test">Test DM Option</option>
+</select> 
+
+<i style="margin-left: 10px;"></i> <button onclick="disLoad(document.getElementById('token').value, '50')">Load Channel!</button>
+
 
 <div style="position: absolute; width: 975px; height: 350px; z-index: 2; left: 14px; top: 68px; color: #000000; background-color: #ffffff; padding: 5px; overflow-y: scroll; overflow-x: scroll;" id="messages">
 
