@@ -44,7 +44,7 @@ function disUpdate(t, c, v) {
 if(data[i].attachments == ''){
  document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>';
  } else
-     if(data[i].attachments[0].filename.split('.').pop() == ".png" || data[i].attachments[0].filename.split('.').pop() == ".jpg" || data[i].attachments[0].filename.split('.').pop() == ".gif" || data[i].attachments[0].filename.split('.').pop() == ".webp"){
+     if(data[i].attachments[0].filename.split('.').pop() == ".png" || data[i].attachments[0].filename.split('.')[1] == ".jpg" || data[i].attachments[0].filename.split('.')[1] == ".gif" || data[i].attachments[0].filename.split('.')[1] == ".webp"){
     document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>' + '<img src="' + data[i].attachments[0].url + '" alt="Download \'' + data[i].attachments[0].filename + '\'" /><br>'; 
  } else {
     document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + ` Attachement: <a href="${data[i].attachments[0].url}" />` + `Download ${data[i].attachments[0].filename}` + '</a><br>';  
