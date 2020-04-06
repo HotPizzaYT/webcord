@@ -5,11 +5,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <title>The WebCord client for Discord</title>
 <script>
+var window.int;
 function disSend(t, c, m){
+clearInterval(window.int)
 fetch("https://ptb.discordapp.com/api/v6/channels/" + c + "/messages", {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t,"content-type":"application/json","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-super-properties":"hax"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":"{\"content\":\"" + m + "\",\"tts\":false}","method":"POST","mode":"cors"});
 document.getElementById('mess').value = "";
 disUpdate(document.getElementById('token').value, c, '50');
-setInterval(function(){ disUpdate(document.getElementById('token').value, c, '50'); }, 9000);
+window.int = setInterval(function(){ disUpdate(document.getElementById('token').value, c, '50'); }, 9000);
 }
 
 function disLoad(t, v){
