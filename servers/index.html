@@ -28,36 +28,10 @@ fetch('https://discordapp.com/api/v6/users/@me/guilds', {"credentials":"include"
     }
 })
 
-//setInterval(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 20000);
-
-}
-
-function disLoadChannelList(t, v){
-
-document.getElementById('messages').innerHTML = '';
-
-var id = getServer();
-
-fetch(`https://discordapp.com/api/v6/guilds/${id}`, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
-for(let i=0; i < data.length; i++){
-    var sel = document.getElementById('ids_server');
-    var opt = document.createElement('option');
-
-    opt.appendChild( document.createTextNode(data[i].recipients[0].username) );
-
-    opt.value = data[i].id; 
-
-    sel.appendChild(opt); 
-}
-})
-
-//setInterval(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 20000);
 
 }
 
 function disLoadChannel(t, v){
-
-document.getElementById('messages').innerHTML = '';
 
 fetch(`https://discordapp.com/api/v6/guilds/${getServer()}/channels`, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
 for(let i=0; i < data.length; i++){
@@ -71,8 +45,6 @@ for(let i=0; i < data.length; i++){
     sel.appendChild(opt); 
 }
 })
-
-//setInterval(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 20000);
 
 }
 
@@ -215,13 +187,13 @@ body {
 
 <label for="ids_server">Pick server</label>
 
-<select id="ids_server" onchange="disLoadChannelList(document.getElementById('token').value, '50')">
+<select id="ids_server" onchange="disLoadChannel(document.getElementById('token').value, '50')">
     <option value="test">Test DM Option</option>
 </select> 
 
 <label for="ids_channel">Pick channel</label>
 
-<select id="ids_channel" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50')">
+<select id="ids_channel" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50'); setInterval(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 20000);">
     <option value="test">Test DM Option</option>
 </select> 
 
