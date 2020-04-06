@@ -6,16 +6,13 @@
 <title>The WebCord client for Discord</title>
 <script>
 function disSend(t, c, m){
-clearInterval(window.in);
 fetch("https://ptb.discordapp.com/api/v6/channels/" + c + "/messages", {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t,"content-type":"application/json","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-super-properties":"hax"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":"{\"content\":\"" + m + "\",\"tts\":false}","method":"POST","mode":"cors"});
 document.getElementById('mess').value = "";
 disUpdate(document.getElementById('token').value, c, '50');
-var window.in = setInterval(function(){ disUpdate(document.getElementById('token').value, c, '50'); }, 9000);
+setInterval(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 9000);
 }
 
 function disLoad(t, v){
-document.getElementById('messages').innerHTML = "";
-
 
 fetch('https://discordapp.com/api/v6/users/@me/channels', {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
     for(let i=0; i < data.length; i++){
@@ -75,7 +72,7 @@ WebCord Client========================<br>
 
 <label for="ids_dm">Pick DM</label>
 
-<select id="ids_dm" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50');  document.getElementById('messages').innerHTML = '';">
+<select id="ids_dm" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50');  document.getElementById('messages').innerHTML = ''; clearInterval()">
     <option value="test">Test DM Option</option>
 </select> 
 
