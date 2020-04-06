@@ -3,22 +3,21 @@ Finally, a Discord web client requiring only a token and a channel ID
 # About this project
 WebCord comes with exciting features.
 
-• Manual refreshing
+• Automatic refreshing
+
+• Support emojis
 
 • Support for attached images
 
+• Viewing all your servers
+
 # ToDo list
-• Support emojis
 
 • Support files
 
 • Parse links
 
 • Support multiple images
-
-• Automatic refreshing
-
-• Viewing all your servers
 
 # For use at work/school
 
