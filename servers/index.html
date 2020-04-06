@@ -59,12 +59,12 @@ function disLoadChannel(t, v){
 
 document.getElementById('messages').innerHTML = '';
 
-fetch('https://discordapp.com/api/v6/users/@me/channels', {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
+fetch(`https://discordapp.com/api/v6/guilds/${getServer()}/channels`, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
 for(let i=0; i < data.length; i++){
-    var sel = document.getElementById('ids_dm');
+    var sel = document.getElementById('ids_channel');
     var opt = document.createElement('option');
 
-    opt.appendChild( document.createTextNode(data[i].recipients[0].username) );
+    opt.appendChild( document.createTextNode(data[i].name) );
 
     opt.value = data[i].id; 
 
@@ -103,7 +103,7 @@ function getServer(){
 function getChannel(){
     var e = document.getElementById("ids_channel");
     return e.options[e.selectedIndex].value;
-}    
+}   
 
 
 
@@ -219,24 +219,15 @@ body {
     <option value="test">Test DM Option</option>
 </select> 
 
-<label for="ids_channel">Pick catogary</label>
+<label for="ids_channel">Pick channel</label>
 
-<select id="ids_channel">
+<select id="ids_channel" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50')">
     <option value="test">Test DM Option</option>
 </select> 
 
-<i style="margin-left: 10px;"></i> <button onclick="disLoadChannel(document.getElementById('token').value, '50')">Load Catogary!</button>
-
-<label for="ids_mess">Pick channel</label>
-
-<select id="ids_mess">
-    <option value="test">Test DM Option</option>
-</select> 
-
-<i style="margin-left: 10px;"></i> <button onclick="disLoadChannel(document.getElementById('token').value, '50')">Load Channel!</button>
 
 
-<div style="position: absolute; width: 975px; height: 350px; z-index: 2; left: 14px; top: 68px; color: #000000; background-color: #ffffff; padding: 5px; overflow-y: scroll; overflow-x: scroll;" id="messages">
+<div style="position: absolute; width: 975px; height: 350px; z-index: 2; left: 14px; top: 80px; color: #000000; background-color: #ffffff; padding: 5px; overflow-y: scroll; overflow-x: scroll;" id="messages">
 
 <b>undefined</b> this is what your messages will look like</div>
 
