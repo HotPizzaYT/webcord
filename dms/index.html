@@ -32,7 +32,6 @@ fetch('https://discordapp.com/api/v6/users/@me/channels', {"credentials":"includ
 }
 
 function disUpdate(t, c, v) {
-    document.getElementById('messages').innerHTML = '';
 
 
     fetch('https://ptb.discordapp.com/api/v6/channels/' + c + '/messages?limit=' + v, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization":t,"sec-fetch-mode":"cors","sec-fetch-site":"same-origin"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => {   i = 0; for(let i = 0 ; i < data.length; i++){  
@@ -75,7 +74,7 @@ WebCord Client========================<br>
 
 <label for="ids_dm">Pick DM</label>
 
-<select id="ids_dm" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50')">
+<select id="ids_dm" onchange="disUpdate(document.getElementById('token').value, getChannel(), '50');  document.getElementById('messages').innerHTML = '';">
     <option value="test">Test DM Option</option>
 </select> 
 
