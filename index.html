@@ -20,7 +20,7 @@ fetch('https://ptb.discordapp.com/api/v6/channels/' + c + '/messages?limit=' + v
 if(data[i].attachments == ''){
  document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>';
  } else {
-document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>' + '<img src="' + data[i].attachments[0].url + '" /><br>'; 
+document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>' + '<img src="' + data[i].attachments[0].url + '" alt="Download \'' + data[i].attachments[0].filename + '\'" /><br>'; 
  console.log('Found a URL');
  }
 } });
