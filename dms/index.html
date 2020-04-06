@@ -47,7 +47,7 @@ if(data[i].attachments == ''){
      if(data[i].attachments[0].filename.split('.').pop() == ".png" || data[i].attachments[0].filename.split('.').pop() == ".jpg" || data[i].attachments[0].filename.split('.').pop() == ".gif" || data[i].attachments[0].filename.split('.').pop() == ".webp"){
     document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br>' + '<img src="' + data[i].attachments[0].url + '" alt="Download \'' + data[i].attachments[0].filename + '\'" /><br>'; 
  } else {
-    document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + '<br> Attachement: <a href=""' + data[i].attachments[0].url + '" alt="Download \'' + data[i].attachments[0].filename + '\'" />' + `Download ${data[i].attachments[0].filename}` + '</a><br>';  
+    document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + ` Attachement: <a href="${data[i].attachments[0].url}" />` + `Download ${data[i].attachments[0].filename}` + '</a><br>';  
  }
 } });
 }
