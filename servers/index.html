@@ -33,6 +33,8 @@ fetch('https://discordapp.com/api/v6/users/@me/guilds', {"credentials":"include"
 
 function disLoadChannel(t, v){
 
+    document.getElementById('ids_channel').options.length = 0;
+
 fetch(`https://discordapp.com/api/v6/guilds/${getServer()}/channels`, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
 for(let i=0; i < data.length; i++){
 
