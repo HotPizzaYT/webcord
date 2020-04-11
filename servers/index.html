@@ -81,6 +81,9 @@ if(data[i].attachments == ''){
     document.getElementById('messages').innerHTML += "<b>" + data[i].author.username + "</b> " + data[i].content + ` Attachement: <a href="${data[i].attachments[0].url}" />` + `Download ${data[i].attachments[0].filename}` + '</a><br>';  
  }
 } });
+
+setTimeout(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 4000);
+
 }
 
 function getServer(){
