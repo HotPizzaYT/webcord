@@ -28,8 +28,8 @@ fetch('https://discordapp.com/api/v6/users/@me/channels', {"credentials":"includ
     }
 })
 
-// RIP constant refresh
-// setInterval(function(){ disUpdate(document.getElementById('token').value, getChannel(), '50'); }, 20000);
+// Hello constant refresh!
+window.constantRefresh = setInterval(function(){ document.getElementById('messages').innerHTML = ''; disUpdate(document.getElementById('token').value, getChannel(), '100'); }, 20000);
 
 }
 
