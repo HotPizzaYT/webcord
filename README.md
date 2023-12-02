@@ -36,3 +36,7 @@ javascript:var body = document.getElementsByTagName("body")[0]; var newHx = docu
 Normal
 
 javascript:var body = document.getElementsByTagName("body")[0]; var newHx = document.createElement("iframe"); newHx.src = "https://hotpizzayt.github.io/webcord"; newHx.width = screen.width; newHx.height = screen.height; body.appendChild(newHx);
+
+# The iFrame bookmark doesn't work!
+
+This is unfortunate news to people who use Securly, because Securly blocks all iFrame requests. Fortunately there is a solution! Go in this repository and open `bookmarklets.md` for information on how to get WebCord embedded on any site! Note that these will have to be updated every API change. (ex. update from v9 to v10) This is also assuming that Securly doesn't also block network request too. I don't go to school so I don't know.
