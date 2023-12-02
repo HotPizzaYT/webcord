@@ -7,7 +7,7 @@
 <script>
 function disSend(t, c, m){
 document.getElementById('mess').value = '';
-fetch("https://discord.com/api/v6/channels/" + c + "/messages", {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t,"content-type":"application/json","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-super-properties":"hax"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":"{\"content\":\"" + m + "\",\"tts\":false}","method":"POST","mode":"cors"});
+fetch("https://discord.com/api/v9/channels/" + c + "/messages", {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t,"content-type":"application/json","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-super-properties":"hax"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":"{\"content\":\"" + m + "\",\"tts\":false}","method":"POST","mode":"cors"});
 setTimeout(function(){disUpdate(document.getElementById('token').value, getChannel(), '50')}, 2000);
 }
 
@@ -15,7 +15,7 @@ function disLoadServers(t, v){
 
     document.getElementById('messages').innerHTML = '';
 
-fetch('https://discord.com/api/v6/users/@me/guilds', {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
+fetch('https://discord.com/api/v9/users/@me/guilds', {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v9/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
     for(let i=0; i < data.length; i++){
         var sel = document.getElementById('ids_server');
         var opt = document.createElement('option');
@@ -35,7 +35,7 @@ function disLoadChannel(t, v){
 
     document.getElementById('ids_channel').options.length = 0;
 
-fetch(`https://discordapp.com/api/v6/guilds/${getServer()}/channels`, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v6/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
+fetch(`https://discordapp.com/api/v9/guilds/${getServer()}/channels`, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization": t},"referrer":"https://discordapp.com/api/v9/","referrerPolicy":"no-referrer-when-downgrade","method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => { 
 for(let i=0; i < data.length; i++){
 
     if(data[i].type == 0)
@@ -67,7 +67,7 @@ function disUpdate(t, c, v) {
 
     //document.getElementById('messages').innerHTML = '';
 
-    fetch('https://discord.com/api/v6/channels/' + c + '/messages?limit=' + v, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization":t,"sec-fetch-mode":"cors","sec-fetch-site":"same-origin"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => {   i = 0; for(let i = 0 ; i < data.length; i++){  
+    fetch('https://discord.com/api/v9/channels/' + c + '/messages?limit=' + v, {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US","authorization":t,"sec-fetch-mode":"cors","sec-fetch-site":"same-origin"},"referrer":"https://ptb.discordapp.com/channels/@me","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}).then((response) => {     return response.json();   })   .then((data) => {   i = 0; for(let i = 0 ; i < data.length; i++){  
 
 // + '<img src="' + data[i].attachments[0].url + '" style="width: 10%; height: 10%" /><br>'
 
